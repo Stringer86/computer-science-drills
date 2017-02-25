@@ -10,19 +10,19 @@ describe('Hash Table', () => {
   describe('Level One', () => {
     suite('#greet', () => {
       it('should greet user in English if the provided lang is \'English\'', () => {
-        level1.greet('english').should.equal('Welcome a Miami.');
+        level1.greet('english').should.equal('Welcome to Miami.');
       });
 
       it('should greet user in Dutch if the provided lang is \'dutch\'', () => {
-        level1.greet('dutch').should.equal('Welkom a Miami.');
+        level1.greet('dutch').should.equal('Welkom to Miami.');
       });
 
       it('should greet the user in English for invalid inputs', () => {
-        level1.greet('bob').should.equal('Welcome a Miami.');
+        level1.greet('bob').should.equal('Welcome to Miami.');
       });
 
       it('should greet the user with the correct lang even if it the input is capitolized', () => {
-        level1.greet('Swedish').should.equal('Valkommen a Miami.');
+        level1.greet('Swedish').should.equal('Valkommen to Miami.');
       });
     });
 
