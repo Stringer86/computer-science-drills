@@ -7,7 +7,12 @@ arrayPairSum(10, [3, 5, 6, 8]) // => []
 
  */
 
-function arrayPairSum() {
+function arrayPairSum(value, arr) {
+
+
+
+
+
 
 }
 
