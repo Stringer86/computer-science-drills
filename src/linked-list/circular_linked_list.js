@@ -6,11 +6,16 @@
   reduced API.
 */
 
-function Node(val, next, prev) {
-
+function Node(val) {
+  this.next = null;
+  this.prev = null;
+  this.value = val;
 }
 
 function CircularLinkedList() {
+  this.head = null;
+  this.tail = null;
+  this.length = 0;
 }
 
 /*
