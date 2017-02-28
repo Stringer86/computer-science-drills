@@ -2,7 +2,8 @@
 //  list - a Linked List
 // The function returns the number of elements in the list.
 function count(list) {
-
+  if (list === null) return 0;
+  return 1 + count(list.next);
 }
 
 // Write a function named insertInFront that takes in one argument:
@@ -12,14 +13,18 @@ function count(list) {
 // Example:
 //    insertInFront(1 -> 2 -> 3 -> ., 4) produces 4 -> 1 -> 2 -> 3 -> .
 function insertInFront(value, list) {
-
+  return {
+    value,
+    next: list
+  };
 }
 
 // Write a function named sum that takes in one argument:
 //  list - a Linked List
 // The function returns the sum of all of the elements in the list.
 function sum(list) {
-
+  if (list === null) return 0;
+  return list.value + sum(list.next);
 }
 
 // Write a function named getValueAtIndex that takes in the following:
@@ -32,7 +37,16 @@ function sum(list) {
 //  getValueAtIndex(1 -> 2 -> 3 -> ., 0) produces 1
 //  getValueAtIndex(1 -> 2 -> 3 -> ., 4) throws an error
 function getValueAtIndex(list, index) {
+  let count = 0;
+  while (count !== index) {
+    list = list.next;
+    count++;
+    if (list === null) {
+      throw new Error();
+    }
+  }
 
+  return list.value;
 }
 
 // Write a function toArray that takes in one argument:
@@ -41,7 +55,14 @@ function getValueAtIndex(list, index) {
 // Example:
 //   1 -> 2 -> 3 -> .  would produce [1, 2, 3]
 function toArray(list) {
+  let arr = [];
 
+  while (list !== null) {
+    arr.push(list.value)
+    list = list.next;
+  }
+
+  return arr;
 }
 
 module.exports = {

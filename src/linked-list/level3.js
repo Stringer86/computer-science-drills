@@ -6,7 +6,41 @@
 //    merge(1 -> 3 -> 5 -> ., 2 -> 4 -> 6 -> .) produces
 //       1 -> 2 -> 3 -> 4 -> 5 -> 6 -> .
 function merge(list1, list2) {
+  if (list1 === null) {
+   return list2;
+ } else if (list2 === null) {
+   return list1;
+ } else if (list1 === null && list2 === null) {
+   return null;
+ }
 
+ let list1Values = [];
+ let list2Values = [];
+
+ while (list1 !== null) {
+   list1Values.push(list1.value);
+   list1 = list1.next;
+ }
+
+ while (list2 !== null) {
+   list2Values.push(list2.value);
+   list2 = list2.next;
+ }
+
+ let allValues = (list1Values.concat(list2Values)).sort();
+
+ const buildList = function(arr) {
+   if (arr.length === 0) {
+     return null;
+   }
+
+   return {
+     value: arr.shift(),
+     next: buildList(arr)
+   };
+ };
+
+ return buildList(allValues);
 }
 
 // Write a function named map, that takes in the following as arguments:
